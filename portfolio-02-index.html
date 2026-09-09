@@ -1,0 +1,689 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Elena Belousova — Concept · Index</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --serif:'Cormorant Garamond',Georgia,serif;
+    --sans:'Jost','Futura',system-ui,sans-serif;
+    --paper:#ffffff;
+    --ink:#0d0f12;
+    --ink-2:#6a6d71;
+    --ink-3:#9a9da1;
+    --line:rgba(13,15,18,.14);
+    --line-2:rgba(13,15,18,.28);
+    --blue:#2F54DD;
+    --soft:#f3f3f3;
+    --fallback:#dcdcdc;
+    --dk:#05080c;
+    --dk-fallback:#1b1b1b;
+    --pad:clamp(26px,5vw,90px);
+    --ease:cubic-bezier(.22,.61,.19,1);
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;background:var(--paper);color:var(--ink);
+    font-family:var(--sans);font-weight:300;
+    overflow-x:clip;
+    -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+  }
+  ::selection{background:var(--blue);color:#fff}
+  button{font:inherit;color:inherit;background:none;border:0;margin:0;padding:0;cursor:pointer}
+  .wrap{max-width:1600px;margin:0 auto;padding:0 var(--pad)}
+  .cap{font-family:var(--sans);text-transform:uppercase;letter-spacing:.2em;font-size:11px;font-weight:400;color:var(--ink-2)}
+  .serif{font-family:var(--serif)}
+
+  /* ---------- header ---------- */
+  .head{position:sticky;top:0;z-index:60;background:rgba(255,255,255,.82);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+  .head .wrap{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:62px;gap:20px}
+  .brand{justify-self:start;letter-spacing:.22em;text-transform:uppercase;font-size:12px;font-weight:400;transition:color .2s var(--ease)}
+  .brand:hover{color:var(--blue)}
+  .nav{justify-self:center;display:flex;gap:30px}
+  .navlink{position:relative;letter-spacing:.18em;text-transform:uppercase;font-size:11px;font-weight:400;color:var(--ink-2);transition:color .2s var(--ease)}
+  .navlink::after{content:"";position:absolute;left:0;right:100%;bottom:-5px;height:1px;background:var(--ink);transition:right .3s var(--ease)}
+  .navlink:hover{color:var(--ink)}
+  .navlink:hover::after{right:0}
+  .head-r{justify-self:end;display:flex;align-items:center;gap:9px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2)}
+  .dot{width:5px;height:5px;border-radius:50%;background:var(--blue);display:inline-block}
+  #clock{font-variant-numeric:tabular-nums;color:var(--ink)}
+
+  /* ---------- hero ---------- */
+  .hero{padding:clamp(60px,9vw,130px) 0 clamp(40px,5vw,70px)}
+  .hero-top{display:flex;justify-content:space-between;align-items:baseline;gap:20px;padding-bottom:clamp(24px,4vw,54px)}
+  .giant{font-family:var(--serif);font-weight:400;line-height:.9;font-size:clamp(4.4rem,15vw,13rem);letter-spacing:-.02em;margin:0;position:relative;display:inline-block}
+  .giant sup{font-size:.16em;font-family:var(--sans);font-weight:400;letter-spacing:.1em;vertical-align:top;top:.9em;position:relative;color:var(--blue);left:.12em}
+  .hero-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:clamp(30px,6vw,90px);align-items:end;margin-top:clamp(20px,3vw,38px)}
+  .hero-sub{font-family:var(--serif);font-weight:300;font-size:clamp(1.5rem,2.6vw,2.5rem);line-height:1.15;letter-spacing:-.01em;max-width:16ch}
+  #about{color:var(--ink-2);font-size:15px;line-height:1.75;max-width:46ch}
+  #about b{color:var(--ink);font-weight:400}
+  .pubs{margin-top:clamp(34px,5vw,64px);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:22px 0;display:flex;flex-wrap:wrap;align-items:center;gap:12px 26px}
+  .pubs .lbl{display:inline-flex;align-items:center;gap:8px;color:var(--ink-2)}
+  .pubs .lbl svg{width:12px;height:12px;color:var(--blue)}
+  .pubs .pub{font-family:var(--serif);font-size:clamp(1.05rem,1.7vw,1.6rem);font-weight:400;letter-spacing:.01em;color:var(--ink)}
+  .pubs .sep{color:var(--line-2)}
+  .scrollhint{display:flex;align-items:center;gap:10px;margin-top:clamp(30px,4vw,52px);color:var(--ink-2)}
+  .scrollhint svg{width:14px;height:14px;animation:bob 2s var(--ease) infinite}
+  @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
+
+  /* ---------- index list ---------- */
+  .index{padding:clamp(40px,6vw,90px) 0 clamp(30px,4vw,60px)}
+  .index-head{display:flex;justify-content:space-between;align-items:baseline;gap:20px;padding-bottom:14px;border-bottom:1px solid var(--ink)}
+  .index-head .hint{color:var(--ink-3);text-transform:none;letter-spacing:.04em;font-size:12px}
+  .list{list-style:none;margin:0;padding:0}
+  .row{border-bottom:1px solid var(--line);position:relative}
+  .rowbtn{width:100%;display:grid;grid-template-columns:74px 1fr auto 46px;align-items:center;gap:clamp(14px,2vw,34px);padding:clamp(18px,2.4vw,32px) 0;text-align:left}
+  .rowbtn::before{content:"";position:absolute;left:calc(var(--pad)*-1 + 0px);top:0;bottom:0;width:2px;background:var(--blue);transform:scaleY(0);transform-origin:center;transition:transform .35s var(--ease)}
+  .row:hover .rowbtn::before,.row.active .rowbtn::before{transform:scaleY(1)}
+  .rnum{font-size:13px;letter-spacing:.1em;color:var(--ink-3);font-variant-numeric:tabular-nums;transition:color .3s var(--ease);padding-top:.4em;align-self:start}
+  .row:hover .rnum,.row.active .rnum{color:var(--blue)}
+  .rname{font-family:var(--serif);font-weight:400;font-size:clamp(2rem,6vw,5.2rem);line-height:.98;letter-spacing:-.015em;transition:transform .4s var(--ease);will-change:transform}
+  .row:hover .rname{transform:translateX(16px)}
+  .rmeta{justify-self:end;text-align:right;display:flex;flex-direction:column;gap:4px;line-height:1.2}
+  .rcity{font-size:13px;letter-spacing:.05em;color:var(--ink)}
+  .rgenre{text-transform:uppercase;letter-spacing:.16em;font-size:10px;color:var(--ink-3)}
+  .ricon{justify-self:end;width:24px;height:24px;color:var(--ink-2);transition:color .3s var(--ease)}
+  .ricon svg{width:24px;height:24px;display:block;transition:transform .4s var(--ease)}
+  .row:hover .ricon{color:var(--ink)}
+  .row.active .ricon{color:var(--blue)}
+  .row.active .ricon svg{transform:rotate(135deg)}
+
+  /* panel */
+  .panel{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s var(--ease)}
+  .panel.open{grid-template-rows:1fr}
+  .pinner{overflow:hidden;opacity:0;transform:translateY(10px);transition:opacity .45s var(--ease) .05s,transform .45s var(--ease) .05s}
+  .panel.open .pinner{opacity:1;transform:none}
+  .pbody{padding:6px 0 clamp(30px,4vw,52px);display:grid;gap:clamp(22px,3vw,34px)}
+  .pmeta{display:grid;grid-template-columns:1.5fr 1fr;gap:clamp(24px,4vw,60px);align-items:end;max-width:1100px}
+  .pdesc{font-family:var(--serif);font-weight:300;font-size:clamp(1.2rem,1.8vw,1.7rem);line-height:1.32;color:var(--ink);letter-spacing:-.005em}
+  .pcredits{margin:0;display:grid;grid-template-columns:auto 1fr;gap:8px 20px;align-content:end}
+  .pcredits dt{text-transform:uppercase;letter-spacing:.16em;font-size:10px;color:var(--ink-3);align-self:center}
+  .pcredits dd{margin:0;font-size:14px;color:var(--ink);letter-spacing:.02em}
+  .striphead{display:flex;justify-content:space-between;align-items:center;gap:16px}
+  .striphead .st-count{font-size:12px;letter-spacing:.05em;color:var(--ink-3);font-variant-numeric:tabular-nums}
+  .striphead .st-hint{display:inline-flex;align-items:center;gap:8px;text-transform:uppercase;letter-spacing:.16em;font-size:10px;color:var(--ink-2)}
+  .striphead .st-hint svg{width:20px;height:9px}
+  .strip{display:flex;gap:14px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:14px;scrollbar-width:thin;scrollbar-color:rgba(13,15,18,.3) transparent;cursor:grab}
+  .strip.drag{cursor:grabbing;scroll-snap-type:none}
+  .strip::-webkit-scrollbar{height:4px}
+  .strip::-webkit-scrollbar-thumb{background:rgba(13,15,18,.26);border-radius:4px}
+  .strip::-webkit-scrollbar-track{background:transparent}
+  .shot{flex:0 0 auto;aspect-ratio:3/4;height:clamp(300px,46vh,470px);background:var(--fallback) center/cover no-repeat;scroll-snap-align:start;position:relative;overflow:hidden;filter:grayscale(.06)}
+  .shot::after{content:"";position:absolute;inset:0;background:rgba(13,15,18,0);transition:background .3s var(--ease)}
+  .shot:hover::after{background:rgba(13,15,18,.12)}
+  .shot .zoom{position:absolute;right:12px;bottom:12px;width:30px;height:30px;border-radius:50%;background:rgba(255,255,255,.9);display:grid;place-items:center;opacity:0;transform:scale(.8);transition:opacity .3s var(--ease),transform .3s var(--ease)}
+  .shot:hover .zoom{opacity:1;transform:scale(1)}
+  .shot .zoom svg{width:14px;height:14px;color:var(--ink)}
+
+  /* floating cursor preview */
+  .preview{position:fixed;top:0;left:0;z-index:40;width:min(26vw,320px);aspect-ratio:3/4;background:var(--fallback) center/cover no-repeat;pointer-events:none;opacity:0;transition:opacity .35s var(--ease),clip-path .5s var(--ease);clip-path:inset(8% 8% 8% 8%);will-change:transform;box-shadow:0 30px 70px -30px rgba(13,15,18,.5)}
+  .preview.show{opacity:1;clip-path:inset(0 0 0 0)}
+  @media (hover:none){.preview{display:none}}
+
+  /* ---------- colophon ---------- */
+  .colophon{background:var(--dk);color:#fff;margin-top:clamp(50px,7vw,110px);padding:clamp(60px,8vw,120px) 0 40px}
+  .colophon .wrap{}
+  .co-contact{display:grid;grid-template-columns:1.3fr 1fr;gap:clamp(30px,5vw,70px);align-items:end;padding-bottom:clamp(40px,6vw,80px);border-bottom:1px solid rgba(255,255,255,.16)}
+  .co-say{font-family:var(--serif);font-weight:300;font-size:clamp(1.8rem,4vw,3.6rem);line-height:1.08;letter-spacing:-.01em}
+  .co-say .em{color:#fff}
+  .co-lines{display:grid;gap:12px}
+  .co-lines .cl{display:grid;gap:3px}
+  .co-lines .k{text-transform:uppercase;letter-spacing:.18em;font-size:10px;color:rgba(255,255,255,.5)}
+  .co-lines .v{font-family:var(--serif);font-size:clamp(1.15rem,1.7vw,1.5rem);font-weight:400;color:#fff;letter-spacing:.01em}
+  .co-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,4vw,60px);padding:clamp(40px,5vw,64px) 0}
+  .co-col h4{margin:0 0 18px;text-transform:uppercase;letter-spacing:.2em;font-size:10px;font-weight:400;color:rgba(255,255,255,.5)}
+  .co-col ul{list-style:none;margin:0;padding:0;display:grid;gap:11px}
+  .co-col li{font-size:14px;letter-spacing:.02em;color:rgba(255,255,255,.82)}
+  .co-jump{display:inline-flex;align-items:center;gap:10px;color:rgba(255,255,255,.82);transition:color .2s var(--ease),gap .25s var(--ease);text-align:left}
+  .co-jump .idx{color:rgba(255,255,255,.4);font-variant-numeric:tabular-nums;font-size:12px}
+  .co-jump:hover{color:#fff;gap:16px}
+  .co-jump .arw{width:0;overflow:hidden;transition:width .25s var(--ease);color:var(--blue)}
+  .co-jump:hover .arw{width:16px}
+  .co-jump .arw svg{width:16px;height:10px;display:block}
+  .co-bot{display:flex;justify-content:space-between;align-items:center;gap:20px;padding-top:34px;border-top:1px solid rgba(255,255,255,.16);flex-wrap:wrap}
+  .co-bot .small{font-size:11px;letter-spacing:.06em;color:rgba(255,255,255,.5)}
+  .co-word{font-family:var(--serif);font-weight:300;letter-spacing:-.02em;line-height:.9;font-size:clamp(3rem,11vw,10rem);margin-top:clamp(30px,4vw,54px);color:#fff;white-space:nowrap;overflow:hidden}
+  .co-word .b{color:rgba(255,255,255,.28)}
+
+  /* ---------- lightbox ---------- */
+  .lb{position:fixed;inset:0;z-index:90;display:none;align-items:center;justify-content:center;background:rgba(5,8,12,.94);padding:clamp(24px,5vw,72px);opacity:0;transition:opacity .3s var(--ease)}
+  .lb.open{display:flex;opacity:1}
+  .lbback{position:absolute;inset:0}
+  .lbstage{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:16px;max-width:100%;max-height:100%}
+  .lbfig{background:var(--dk-fallback);max-width:min(70vh*.75,90vw);max-height:78vh;display:flex}
+  .lbimg{display:block;max-width:100%;max-height:78vh;width:auto;height:auto;object-fit:contain;background:var(--dk-fallback)}
+  .lbbar{display:flex;align-items:center;gap:22px;color:rgba(255,255,255,.72)}
+  .lbcount{font-size:12px;letter-spacing:.14em;font-variant-numeric:tabular-nums}
+  .lbbtn{width:42px;height:42px;border:1px solid rgba(255,255,255,.28);border-radius:50%;display:grid;place-items:center;color:#fff;transition:background .2s var(--ease),border-color .2s var(--ease)}
+  .lbbtn:hover{background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.6)}
+  .lbbtn svg{width:16px;height:16px}
+  .lbclose{position:absolute;top:clamp(18px,3vw,34px);right:clamp(18px,3vw,34px);z-index:3;width:44px;height:44px;border:1px solid rgba(255,255,255,.28);border-radius:50%;display:grid;place-items:center;color:#fff;transition:transform .3s var(--ease),background .2s var(--ease)}
+  .lbclose:hover{background:rgba(255,255,255,.12);transform:rotate(90deg)}
+  .lbclose svg{width:18px;height:18px}
+
+  /* ---------- pill ---------- */
+  .pill{position:fixed;right:20px;bottom:20px;z-index:70;display:inline-flex;align-items:center;gap:9px;padding:9px 15px;background:rgba(255,255,255,.9);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:100px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2);text-decoration:none;box-shadow:0 12px 30px -14px rgba(13,15,18,.4);transition:color .2s var(--ease),border-color .2s var(--ease)}
+  .pill:hover{color:var(--ink);border-color:var(--line-2)}
+  .pill .pdot{width:6px;height:6px;border-radius:50%;background:var(--blue)}
+
+  /* reveal */
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .85s var(--ease),transform .85s var(--ease)}
+  .reveal.in{opacity:1;transform:none}
+
+  @media (max-width:1024px){
+    .hero-grid{grid-template-columns:1fr}
+    .pmeta{grid-template-columns:1fr}
+    .co-contact{grid-template-columns:1fr}
+    .co-cols{grid-template-columns:1fr}
+    .rowbtn{grid-template-columns:52px 1fr auto 32px}
+  }
+  @media (max-width:640px){
+    .head .wrap{grid-template-columns:auto 1fr;height:56px;gap:10px}
+    .brand{font-size:10px;letter-spacing:.14em;white-space:nowrap}
+    .nav{justify-self:end;gap:14px}
+    .navlink{font-size:10px;letter-spacing:.12em}
+    .head-r{display:none}
+    .rowbtn{grid-template-columns:40px 1fr 24px;gap:12px}
+    .rmeta{display:none}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{animation-duration:.001ms!important;transition-duration:.001ms!important}
+  }
+</style>
+</head>
+<body id="top">
+
+<header class="head">
+  <div class="wrap">
+    <button class="brand" data-scroll="#top">Elena Belousova</button>
+    <nav class="nav">
+      <button class="navlink" data-scroll="#index">Index</button>
+      <button class="navlink" data-scroll="#about">About</button>
+      <button class="navlink" data-scroll="#colophon">Contact</button>
+    </nav>
+    <div class="head-r"><span class="dot"></span><span>Barcelona</span><span id="clock">—</span></div>
+  </div>
+</header>
+
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-top">
+        <span class="cap">Fashion Photographer</span>
+        <span class="cap">Est. Barcelona / Paris</span>
+      </div>
+      <h1 class="giant serif reveal">Index<sup>07</sup></h1>
+      <div class="hero-grid">
+        <p class="hero-sub reveal">Selected editorials, campaigns &amp; runway, 2021—2026.</p>
+        <p id="about" class="reveal"><b>Elena Belousova</b> is a fashion photographer working between Barcelona, Paris and Milan. This index gathers selected editorials, campaigns and runway — an evolving record of collaborations with designers, houses and commercial clients, published across the international fashion press.</p>
+      </div>
+      <div class="pubs reveal">
+        <span class="lbl"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 3v18M3 12h18" stroke-linecap="round"/></svg><span class="cap">Published in</span></span>
+        <span class="pub">VOGUE</span><span class="sep">·</span>
+        <span class="pub">Harper&rsquo;s Bazaar</span><span class="sep">·</span>
+        <span class="pub">ELLE</span><span class="sep">·</span>
+        <span class="pub">L&rsquo;Officiel</span><span class="sep">·</span>
+        <span class="pub">Glamour</span><span class="sep">·</span>
+        <span class="pub">Grazia</span><span class="sep">·</span>
+        <span class="pub">Shape</span><span class="sep">·</span>
+        <span class="pub">BLVD</span>
+      </div>
+      <div class="scrollhint reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 4v16M6 14l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <span class="cap">Select a project to expand</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- INDEX -->
+  <section class="index" id="index">
+    <div class="wrap">
+      <div class="index-head reveal">
+        <span class="cap">Projects</span>
+        <span class="hint">01 — 07</span>
+      </div>
+      <ul class="list" id="list">
+
+        <li class="row reveal" data-id="p1" style="transition-delay:.02s">
+          <button class="rowbtn" type="button" aria-expanded="false" aria-controls="panel-p1">
+            <span class="rnum">01</span>
+            <span class="rname">Elvina Belloir</span>
+            <span class="rmeta"><span class="rcity">Barcelona</span><span class="rgenre">Editorial</span></span>
+            <span class="ricon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></span>
+          </button>
+          <div class="panel" id="panel-p1"><div class="pinner"><div class="pbody">
+            <div class="pmeta">
+              <p class="pdesc">A study in restraint and couture line. Shot across two days in a Barcelona studio, the series pairs sculptural tailoring with unadorned light — the garment left to speak for itself.</p>
+              <dl class="pcredits"><dt>Role</dt><dd>Photography &amp; Direction</dd><dt>Location</dt><dd>Barcelona</dd><dt>Year</dt><dd>2024</dd></dl>
+            </div>
+            <div>
+              <div class="striphead"><span class="st-count"></span><span class="st-hint"><span>Drag to browse</span><svg viewBox="0 0 20 9" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M0 4.5h18M14 1l4 3.5-4 3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+              <div class="strip" data-strip="p1"></div>
+            </div>
+          </div></div></div>
+        </li>
+
+        <li class="row reveal" data-id="p2" style="transition-delay:.06s">
+          <button class="rowbtn" type="button" aria-expanded="false" aria-controls="panel-p2">
+            <span class="rnum">02</span>
+            <span class="rname">Carlo Pasolini</span>
+            <span class="rmeta"><span class="rcity">Milan</span><span class="rgenre">Menswear</span></span>
+            <span class="ricon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></span>
+          </button>
+          <div class="panel" id="panel-p2"><div class="pinner"><div class="pbody">
+            <div class="pmeta">
+              <p class="pdesc">A menswear campaign built on Italian ease. Milanese interiors, natural window light and a wardrobe of quiet luxury, framed for both print and screen.</p>
+              <dl class="pcredits"><dt>Role</dt><dd>Photography</dd><dt>Location</dt><dd>Milan</dd><dt>Year</dt><dd>2023</dd></dl>
+            </div>
+            <div>
+              <div class="striphead"><span class="st-count"></span><span class="st-hint"><span>Drag to browse</span><svg viewBox="0 0 20 9" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M0 4.5h18M14 1l4 3.5-4 3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+              <div class="strip" data-strip="p2"></div>
+            </div>
+          </div></div></div>
+        </li>
+
+        <li class="row reveal" data-id="p3" style="transition-delay:.02s">
+          <button class="rowbtn" type="button" aria-expanded="false" aria-controls="panel-p3">
+            <span class="rnum">03</span>
+            <span class="rname">Seven Lab Lavender</span>
+            <span class="rmeta"><span class="rcity">Paris</span><span class="rgenre">Fragrance</span></span>
+            <span class="ricon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></span>
+          </button>
+          <div class="panel" id="panel-p3"><div class="pinner"><div class="pbody">
+            <div class="pmeta">
+              <p class="pdesc">Fragrance storytelling in shades of soft grey. A tactile, close-cropped narrative made for Seven Lab&rsquo;s Lavender launch — texture, skin and glass.</p>
+              <dl class="pcredits"><dt>Role</dt><dd>Photography &amp; Set</dd><dt>Location</dt><dd>Paris</dd><dt>Year</dt><dd>2024</dd></dl>
+            </div>
+            <div>
+              <div class="striphead"><span class="st-count"></span><span class="st-hint"><span>Drag to browse</span><svg viewBox="0 0 20 9" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M0 4.5h18M14 1l4 3.5-4 3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+              <div class="strip" data-strip="p3"></div>
+            </div>
+          </div></div></div>
+        </li>
+
+        <li class="row reveal" data-id="p4" style="transition-delay:.06s">
+          <button class="rowbtn" type="button" aria-expanded="false" aria-controls="panel-p4">
+            <span class="rnum">04</span>
+            <span class="rname">Vittoria Vicci</span>
+            <span class="rmeta"><span class="rcity">Paris</span><span class="rgenre">Couture</span></span>
+            <span class="ricon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></span>
+          </button>
+          <div class="panel" id="panel-p4"><div class="pinner"><div class="pbody">
+            <div class="pmeta">
+              <p class="pdesc">Couture on the move. Movement editorials captured between ateliers in Paris, following the collection from fitting room to final frame.</p>
+              <dl class="pcredits"><dt>Role</dt><dd>Photography</dd><dt>Location</dt><dd>Paris</dd><dt>Year</dt><dd>2025</dd></dl>
+            </div>
+            <div>
+              <div class="striphead"><span class="st-count"></span><span class="st-hint"><span>Drag to browse</span><svg viewBox="0 0 20 9" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M0 4.5h18M14 1l4 3.5-4 3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+              <div class="strip" data-strip="p4"></div>
+            </div>
+          </div></div></div>
+        </li>
+
+        <li class="row reveal" data-id="p5" style="transition-delay:.02s">
+          <button class="rowbtn" type="button" aria-expanded="false" aria-controls="panel-p5">
+            <span class="rnum">05</span>
+            <span class="rname">Believe Athletics</span>
+            <span class="rmeta"><span class="rcity">Barcelona</span><span class="rgenre">Commercial</span></span>
+            <span class="ricon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></span>
+          </button>
+          <div class="panel" id="panel-p5"><div class="pinner"><div class="pbody">
+            <div class="pmeta">
+              <p class="pdesc">Performance meets editorial. A commercial series for Believe Athletics translating athletic wear into a clean, confident visual language of motion and light.</p>
+              <dl class="pcredits"><dt>Role</dt><dd>Photography &amp; Direction</dd><dt>Location</dt><dd>Barcelona</dd><dt>Year</dt><dd>2023</dd></dl>
+            </div>
+            <div>
+              <div class="striphead"><span class="st-count"></span><span class="st-hint"><span>Drag to browse</span><svg viewBox="0 0 20 9" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M0 4.5h18M14 1l4 3.5-4 3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+              <div class="strip" data-strip="p5"></div>
+            </div>
+          </div></div></div>
+        </li>
+
+        <li class="row reveal" data-id="p6" style="transition-delay:.06s">
+          <button class="rowbtn" type="button" aria-expanded="false" aria-controls="panel-p6">
+            <span class="rnum">06</span>
+            <span class="rname">Fashion Weeks</span>
+            <span class="rmeta"><span class="rcity">Paris / Milan</span><span class="rgenre">Runway</span></span>
+            <span class="ricon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></span>
+          </button>
+          <div class="panel" id="panel-p6"><div class="pinner"><div class="pbody">
+            <div class="pmeta">
+              <p class="pdesc">Backstage and runway across Paris and Milan. Selected frames from the seasons — the choreography of light, models and motion under live show conditions.</p>
+              <dl class="pcredits"><dt>Role</dt><dd>Runway &amp; Backstage</dd><dt>Location</dt><dd>Paris / Milan</dd><dt>Year</dt><dd>2021—2025</dd></dl>
+            </div>
+            <div>
+              <div class="striphead"><span class="st-count"></span><span class="st-hint"><span>Drag to browse</span><svg viewBox="0 0 20 9" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M0 4.5h18M14 1l4 3.5-4 3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+              <div class="strip" data-strip="p6"></div>
+            </div>
+          </div></div></div>
+        </li>
+
+        <li class="row reveal" data-id="p7" style="transition-delay:.02s">
+          <button class="rowbtn" type="button" aria-expanded="false" aria-controls="panel-p7">
+            <span class="rnum">07</span>
+            <span class="rname">Latest Commercial</span>
+            <span class="rmeta"><span class="rcity">Barcelona / Paris</span><span class="rgenre">Commercial</span></span>
+            <span class="ricon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 5v14M5 12h14" stroke-linecap="round"/></svg></span>
+          </button>
+          <div class="panel" id="panel-p7"><div class="pinner"><div class="pbody">
+            <div class="pmeta">
+              <p class="pdesc">Recent commercial commissions across Barcelona and Paris — lookbooks, brand campaigns and product editorials for fashion and beauty clients.</p>
+              <dl class="pcredits"><dt>Role</dt><dd>Photography</dd><dt>Location</dt><dd>Barcelona / Paris</dd><dt>Year</dt><dd>2025</dd></dl>
+            </div>
+            <div>
+              <div class="striphead"><span class="st-count"></span><span class="st-hint"><span>Drag to browse</span><svg viewBox="0 0 20 9" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M0 4.5h18M14 1l4 3.5-4 3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span></div>
+              <div class="strip" data-strip="p7"></div>
+            </div>
+          </div></div></div>
+        </li>
+
+      </ul>
+    </div>
+  </section>
+</main>
+
+<!-- COLOPHON -->
+<footer class="colophon" id="colophon">
+  <div class="wrap">
+    <div class="co-contact reveal">
+      <p class="co-say">Available for editorial,<br>campaign &amp; runway<br><span class="em">commissions worldwide.</span></p>
+      <div class="co-lines">
+        <div class="cl"><span class="k">Based in</span><span class="v">Barcelona | Paris</span></div>
+        <div class="cl"><span class="k">Telephone</span><span class="v">+34 608 41 89 33</span></div>
+        <div class="cl"><span class="k">Email</span><span class="v">elenawhiteusova@gmail.com</span></div>
+      </div>
+    </div>
+
+    <div class="co-cols">
+      <div class="co-col reveal">
+        <h4>Index</h4>
+        <ul id="co-index"></ul>
+      </div>
+      <div class="co-col reveal">
+        <h4>Published in</h4>
+        <ul>
+          <li>VOGUE</li><li>Harper&rsquo;s Bazaar</li><li>ELLE</li><li>L&rsquo;Officiel</li>
+          <li>Glamour</li><li>Grazia</li><li>Shape</li><li>BLVD</li>
+        </ul>
+      </div>
+      <div class="co-col reveal">
+        <h4>Services</h4>
+        <ul>
+          <li>Editorial</li><li>Campaign</li><li>Lookbook</li>
+          <li>Runway &amp; Backstage</li><li>Beauty</li><li>Commercial</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="co-bot">
+      <span class="small">© 2026 Elena Belousova — All rights reserved</span>
+      <span class="small">Concept · Index — Editorial Redesign Demo</span>
+    </div>
+    <div class="co-word reveal">Belousova<span class="b">.</span></div>
+  </div>
+</footer>
+
+<!-- floating preview -->
+<div class="preview" id="preview" aria-hidden="true"></div>
+
+<!-- lightbox -->
+<div class="lb" id="lb" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <div class="lbback" data-close></div>
+  <button class="lbclose" type="button" data-close aria-label="Close">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/></svg>
+  </button>
+  <div class="lbstage">
+    <figure class="lbfig"><img class="lbimg" id="lbimg" alt="Selected work by Elena Belousova"></figure>
+    <div class="lbbar">
+      <button class="lbbtn" type="button" id="lbprev" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M15 5l-7 7 7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <span class="lbcount" id="lbcount">1 / 1</span>
+      <button class="lbbtn" type="button" id="lbnext" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    </div>
+  </div>
+</div>
+
+<a class="pill" href="./index.html"><span class="pdot"></span>Все макеты</a>
+
+<script>
+(function(){
+  'use strict';
+
+  /* ---- Elena's real media (Wix CDN) ---- */
+  var MEDIA=[
+    ['7c87d93b49ba43208ad50439692d6e99','png'],['97a11df3c3af43778d3dd08f0b9a32c0','jpg'],
+    ['17cdb9497c304a0f8ead975eda007e18','jpg'],['e308e30a06c34eaeb230f10a204366d9','jpg'],
+    ['2e20e81964c844128b1a0602dc1d91c6','png'],['f8f0bb54c3f740a798609e7aa0e307af','png'],
+    ['a4b006090c80467b8820f6bb0f2a61b5','jpg'],['0b05eb534d4847c8be5c5ec9d133a68c','jpg'],
+    ['7134c89a5f3c4e0783e7dbf53ee021d2','jpg'],['03bf4d541a90435aa4b1a8b3516092b3','png'],
+    ['a3e438b8dad94564b7a47ed57928ba02','jpeg'],['b64be9106d59464a8cac51f4f9102792','jpeg'],
+    ['67d97f231aa64834a22f6bc680139e63','jpeg'],['fb77e78515814e428742387df6d00423','jpg'],
+    ['2f934bb771404ab3afb90bcbc7ec5b45','jpg'],['1e6c21568a5748c99a7e02e8dd3ff9c8','jpg'],
+    ['22369735cfbd4804a16e47bb64d49b24','jpg'],['da7cd74077a24af6918b60cc3bb0d1e3','jpg'],
+    ['c8d13046aed14ea4ac33a311a4ede9ab','jpeg'],['afd5d8b40df24396b3a1acf2967c1ce9','jpeg'],
+    ['11e73b6469a84d17a0b1a94530e88d9e','jpeg'],['2c57ef3bbd1f4444b5b822ab42e1adcd','jpeg'],
+    ['1d7fc4d291f046e18d42fc463ffe24e9','jpg'],['e290d013b4d946a1be32b381e471dbaa','jpg'],
+    ['c75028819c9940ec93a6b72544d6eb0f','jpg'],['881844294778405d85fd33f23bd12df6','jpg'],
+    ['a2daa970e82a4788851f682c8dc4eed5','jpg']
+  ];
+  function img(i,w,h){
+    var m=MEDIA[i]||MEDIA[0];
+    return 'https://static.wixstatic.com/media/516d35_'+m[0]+'~mv2.'+m[1]+
+      '/v1/fill/w_'+w+',h_'+h+',al_c,q_90,enc_avif,quality_auto/x.'+m[1];
+  }
+  var PHOTOS={
+    p1:[0,1,2,3,4], p2:[5,6,7,8], p3:[9,10,11,12],
+    p4:[13,14,15,16], p5:[17,18,19,20], p6:[21,22,23], p7:[24,25,26]
+  };
+  var NAMES={p1:'Elvina Belloir',p2:'Carlo Pasolini',p3:'Seven Lab Lavender',p4:'Vittoria Vicci',p5:'Believe Athletics',p6:'Fashion Weeks',p7:'Latest Commercial'};
+
+  var $=function(s,c){return (c||document).querySelector(s);};
+  var $$=function(s,c){return Array.prototype.slice.call((c||document).querySelectorAll(s));};
+
+  /* ---- live clock (Barcelona) ---- */
+  var clock=$('#clock');
+  function tick(){
+    if(!clock) return;
+    try{ clock.textContent=new Date().toLocaleTimeString('en-GB',{timeZone:'Europe/Madrid',hour:'2-digit',minute:'2-digit'}); }
+    catch(e){ clock.textContent='—'; }
+  }
+  tick(); setInterval(tick,20000);
+
+  /* ---- smooth in-page scroll ---- */
+  $$('[data-scroll]').forEach(function(b){
+    b.addEventListener('click',function(){
+      var t=document.querySelector(b.getAttribute('data-scroll'));
+      if(t) t.scrollIntoView({behavior:'smooth',block:t.id==='top'?'start':'start'});
+    });
+  });
+
+  /* ---- reveal ---- */
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    },{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+    $$('.reveal').forEach(function(el){ io.observe(el); });
+  } else { $$('.reveal').forEach(function(el){ el.classList.add('in'); }); }
+
+  /* ---- colophon index links ---- */
+  var coIndex=$('#co-index');
+  if(coIndex){
+    ['p1','p2','p3','p4','p5','p6','p7'].forEach(function(id,i){
+      var li=document.createElement('li');
+      var b=document.createElement('button');
+      b.type='button'; b.className='co-jump';
+      b.innerHTML='<span class="idx">0'+(i+1)+'</span><span>'+NAMES[id]+'</span>'+
+        '<span class="arw"><svg viewBox="0 0 20 9" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M0 4.5h18M14 1l4 3.5-4 3.5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>';
+      b.addEventListener('click',function(){ openById(id); });
+      li.appendChild(b); coIndex.appendChild(li);
+    });
+  }
+
+  /* ---- strips (lazy build) ---- */
+  function buildStrip(id){
+    var strip=document.querySelector('.strip[data-strip="'+id+'"]');
+    if(!strip || strip.getAttribute('data-built')) return;
+    var arr=PHOTOS[id]||[];
+    arr.forEach(function(idx,k){
+      var b=document.createElement('button');
+      b.type='button'; b.className='shot';
+      b.setAttribute('aria-label','View image '+(k+1)+' of '+arr.length+' — '+(NAMES[id]||''));
+      b.style.backgroundImage='url("'+img(idx,600,800)+'")';
+      b.setAttribute('data-p',id); b.setAttribute('data-k',k);
+      b.innerHTML='<span class="zoom" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5M11 8v6M8 11h6" stroke-linecap="round"/></svg></span>';
+      strip.appendChild(b);
+    });
+    var count=strip.parentNode.querySelector('.st-count');
+    if(count) count.textContent='01 — 0'+arr.length;
+    enableDrag(strip);
+    strip.setAttribute('data-built','1');
+  }
+
+  function enableDrag(el){
+    var down=false,sx=0,sl=0,moved=false;
+    el.addEventListener('pointerdown',function(e){
+      down=true; moved=false; sx=e.clientX; sl=el.scrollLeft;
+      try{ el.setPointerCapture(e.pointerId); }catch(_){}
+      el.classList.add('drag');
+    });
+    el.addEventListener('pointermove',function(e){
+      if(!down) return;
+      var dx=e.clientX-sx;
+      if(Math.abs(dx)>4) moved=true;
+      el.scrollLeft=sl-dx;
+    });
+    function up(){ down=false; el.classList.remove('drag'); }
+    el.addEventListener('pointerup',up);
+    el.addEventListener('pointercancel',up);
+    el.addEventListener('pointerleave',up);
+    el.addEventListener('click',function(e){ if(moved){ e.preventDefault(); e.stopPropagation(); } },true);
+  }
+
+  /* ---- accordion rows ---- */
+  var rows=$$('.row');
+  var openRow=null;
+
+  function openPanel(row){
+    var panel=$('.panel',row), btn=$('.rowbtn',row);
+    if(!panel) return;
+    buildStrip(row.getAttribute('data-id'));
+    panel.classList.add('open'); row.classList.add('active');
+    if(btn) btn.setAttribute('aria-expanded','true');
+    hidePreview();
+  }
+  function closePanel(row){
+    var panel=$('.panel',row), btn=$('.rowbtn',row);
+    if(!panel) return;
+    panel.classList.remove('open'); row.classList.remove('active');
+    if(btn) btn.setAttribute('aria-expanded','false');
+  }
+  function toggle(row){
+    if(openRow===row){ closePanel(row); openRow=null; }
+    else{ if(openRow) closePanel(openRow); openPanel(row); openRow=row; }
+  }
+  function openById(id){
+    var row=document.querySelector('.row[data-id="'+id+'"]');
+    if(!row) return;
+    if(openRow!==row){ if(openRow) closePanel(openRow); openPanel(row); openRow=row; }
+    row.scrollIntoView({behavior:'smooth',block:'center'});
+  }
+
+  /* ---- floating cursor preview ---- */
+  var preview=$('#preview');
+  var hoverable=window.matchMedia && window.matchMedia('(hover:hover) and (pointer:fine)').matches;
+  var mx=0,my=0,px=0,py=0,raf=null,running=false;
+  function follow(){
+    px+=(mx-px)*.14; py+=(my-py)*.14;
+    if(preview){
+      var w=preview.offsetWidth||320;
+      var flip=(mx > (window.innerWidth - w - 60));
+      var ox=flip ? -(w+28) : 28;
+      preview.style.transform='translate('+px+'px,'+py+'px) translate('+ox+'px,-50%)';
+    }
+    if(running) raf=requestAnimationFrame(follow);
+  }
+  function startFollow(){ if(!running){ running=true; px=mx; py=my; raf=requestAnimationFrame(follow); } }
+  function stopFollow(){ running=false; if(raf) cancelAnimationFrame(raf); }
+  function showPreview(row){
+    if(!preview) return;
+    var id=row.getAttribute('data-id'); var arr=PHOTOS[id];
+    if(!arr) return;
+    preview.style.backgroundImage='url("'+img(arr[0],600,800)+'")';
+    preview.classList.add('show'); startFollow();
+  }
+  function hidePreview(){ if(preview){ preview.classList.remove('show'); } stopFollow(); }
+  if(hoverable){
+    document.addEventListener('pointermove',function(e){ mx=e.clientX; my=e.clientY; });
+  }
+
+  rows.forEach(function(row){
+    var btn=$('.rowbtn',row);
+    if(!btn) return;
+    btn.addEventListener('click',function(){ toggle(row); });
+    if(hoverable){
+      btn.addEventListener('pointerenter',function(){ if(row!==openRow) showPreview(row); });
+      btn.addEventListener('pointerleave',hidePreview);
+    }
+  });
+
+  /* ---- lightbox ---- */
+  var lb=$('#lb'), lbImg=$('#lbimg'), lbCount=$('#lbcount');
+  var lbArr=null,lbI=0;
+  function lockScroll(on){ document.body.style.overflow=on?'hidden':''; }
+  function setLight(){
+    if(!lbArr) return;
+    var idx=lbArr[lbI];
+    if(lbImg) lbImg.src=img(idx,1000,1333);
+    if(lbCount) lbCount.textContent=(lbI+1)+' / '+lbArr.length;
+  }
+  function openLight(id,k){
+    lbArr=PHOTOS[id]; if(!lbArr) return;
+    lbI=k||0; setLight();
+    if(lb){ lb.classList.add('open'); lb.setAttribute('aria-hidden','false'); }
+    lockScroll(true);
+  }
+  function closeLight(){
+    if(lb){ lb.classList.remove('open'); lb.setAttribute('aria-hidden','true'); }
+    lockScroll(false);
+    if(lbImg) lbImg.removeAttribute('src');
+    lbArr=null;
+  }
+  function lbStep(d){ if(!lbArr) return; lbI=(lbI+d+lbArr.length)%lbArr.length; setLight(); }
+
+  document.addEventListener('click',function(e){
+    var shot=e.target.closest ? e.target.closest('.shot') : null;
+    if(shot){
+      var id=shot.getAttribute('data-p'), k=parseInt(shot.getAttribute('data-k'),10)||0;
+      openLight(id,k);
+    }
+  });
+  if(lb){
+    lb.addEventListener('click',function(e){ if(e.target.closest && e.target.closest('[data-close]')) closeLight(); });
+    var prev=$('#lbprev'), next=$('#lbnext');
+    if(prev) prev.addEventListener('click',function(){ lbStep(-1); });
+    if(next) next.addEventListener('click',function(){ lbStep(1); });
+  }
+  if(lbImg){
+    lbImg.addEventListener('error',function(){ lbImg.style.minWidth='40vw'; lbImg.style.minHeight='55vh'; });
+    lbImg.addEventListener('load',function(){ lbImg.style.minWidth=''; lbImg.style.minHeight=''; });
+  }
+
+  document.addEventListener('keydown',function(e){
+    if(lb && lb.classList.contains('open')){
+      if(e.key==='Escape') closeLight();
+      else if(e.key==='ArrowRight') lbStep(1);
+      else if(e.key==='ArrowLeft') lbStep(-1);
+    } else if(e.key==='Escape' && openRow){
+      closePanel(openRow); openRow=null;
+    }
+  });
+
+})();
+</script>
+</body>
+</html>
